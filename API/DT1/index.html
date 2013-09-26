@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Web App Skeleton v 0.3</title>
+	<link href="static/css/style.css" rel="stylesheet" type="text/css" />
+	<link href="static/css/bootstrap.css" rel="stylesheet" type="text/css" />
+	<link href="static/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<header>
+		<h1>Web App Skeleton</h1>
+		<nav>
+			<ul>
+				<li><a href="#/gamepage" data>Gamepage</a></li>
+				<li><a href="#/rankingpage">Rankingpage</a></li>
+				<li><a href="#/schedulepage">Schedulepage</a></li>
+				<li><a href="#/moviepage">Moviepage</a></li>
+		    </ul>
+		</nav>
+	</header>
+	<article id="content" class="col">
+		<section data-route="gamepage" class="active">
+			<h1 data-bind="game"></h1>
+			<p data-bind="description"></p>
+				<table class="table">
+			 		<td>Score</td>
+			 		<td>Team</td>
+			 		<td>Points</td>
+			 		<td>Team</td>
+			 	</table>
+			 	<section data-bind="game"> 
+			    	<table class="table">
+			    	<tr>
+				      <td><h1 data-bind="score"></h1></td>
+				      <td><p data-bind="team1"></p></td>
+			      		<td><p data-bind="team1Score"></p></td>
+			      		<td>-</td>
+						<td><p data-bind="team2Score"></p></td>
+				  	<td><p data-bind="team2"></p></td>			      
+			  		</tr>
+			  		</table>
+			    </section>
+		</section>
+		<section data-route="rankingpage">
+			<table class="table">
+			 		<td>Team</td>
+			 		<td>W</td>
+			 		<td>L</td>
+			 		<td>Points won</td>
+			 		<td>Points lost</td>
+			 		<td>+/-</td>
+			 	</table>
+			 	<section data-bind="ranking"> 
+			    	<table class="table">
+				    	<tr>
+					    	<td><h1 data-bind="team"></h1></td>
+					    	<td><p data-bind="Win"></p></td>
+				      		<td><p data-bind="Lost"></p></td>
+				      		<td><p data-bind="Pw"></p></td>
+				      		<td><p data-bind="Pl"></p></td>
+							<td><p data-bind="Sw"></p></td>
+					  		<td><p data-bind="Sk"></p></td>			      
+				  		</tr>
+			  		</table>
+			    </section>
+			
+		</section>
+		<section data-route="schedulepage">
+			<table class="table">
+			 		<td>Score</td>
+			 		<td>Team</td>
+			 		<td>Points</td>
+			 		<td>Team</td>
+			 	</table>
+			 	<section data-bind="schedule"> 
+			    	<table class="table">
+			    	<tr>
+				      <td><h1 data-bind="date"></h1></td>
+				      <td><p data-bind="team1"></p></td>
+			      		<td><p data-bind="team1Score"></p></td>
+			      		<td>-</td>
+						<td><p data-bind="team2Score"></p></td>
+				  	<td><p data-bind="team2"></p></td>			      
+			  		</tr>
+			  		</table>
+			    </section>
+		</section>
+		<section data-route="moviepage">
+			<table class="table">
+			 		<td>id</td>
+			 		<td>score</td>
+			 		<td>movie_id</td>
+			 		<td>title</td>
+			 		<td>description</td>
+			 	</table>
+			 	<section data-bind="movie"> 
+			    	<table class="table">
+				    	<tr>
+					    	<td><h1 class="id"></h1></td>
+					    	<td ><p class="title" ></p></td>
+				      		<td><p class="description"></p></td>
+				      		<td><p class="release_date"></p></td>
+				      		<td><p class="covers"></p></td>	
+				      		<td><p class="reviews"></p></td>		      
+				  		</tr>
+			  		</table>
+			    </section>
+			
+		</section>
+	</article>
+
+	<!-- Libs -->
+	<script src="static/js/lib/routie.min.js"></script>
+	<script src="static/js/lib/ready.min.js" type="text/javascript"></script>
+	<script src="static/js/lib/qwery.min.js" type="text/javascript"></script>
+	<script src="static/js/lib/transparancy.min.js" type="text/javascript"></script>
+	<script src="static/js/lib/microajax.minified.js"></script>
+	<script src="static/js/lib/attach.min.js"></script>
+	<script src="static/js/lib/zepto.min.js"></script>
+	<!-- Application -->
+	<script src="static/js/app.js"></script>
+	
+	
+</body>
+</html>
