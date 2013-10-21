@@ -1,13 +1,15 @@
 var SCOREAPP = SCOREAPP || {};
 
 (function () {
+	
 SCOREAPP.gamepage = {
 		game: {
 		}
 	};
 SCOREAPP.rankingpage = {
-		ranking: {		
+		ranking: {
 		}
+
 	};
 SCOREAPP.schedulepage = {
 		schedule: {
@@ -30,69 +32,65 @@ SCOREAPP.moviepage = {
 			//routie js finds the correct page by making a function for each page with corresponding page tag 
 			//and rendering it
 	  		routie({
-			    '/gamepage': function() {
-			    	SCOREAPP.page.render('gamepage');
+			    '/gamepage': function() {    	
+			    SCOREAPP.page.render('gamepage');
 			    	SCOREAPP.appGameData = microAjax("https://api.leaguevine.com/v1/games/?offset=20&season_id=20167&limit=20&access_token=8a50bbad51", 
 						function(data){
 							var dataG = JSON.parse(data);
-							//console.log(dataG);
-							//console.log(dataG.objects[1].team.name);
-								for (var i = dataG.objects.length - 1; i >= 0; i--) {
-									//console.log(dataG.objects[i].team.name);
-									var gameData = dataG.objects[i];
-									console.log(gameData);
-									var game = $("<tr></tr>"),
-									team1Name = $("<td>"+ gameData.team_1.name + "</td>"),
-									team1Score = $("<td>"+ gameData.team_1_score + "</td>" + "<td>-</td>"),
-									team2Score = $("<td>"+ gameData.team_2_score + "</td>"),
-									team2Name = $("<td>"+ gameData.team_2.name + "</td>"),
-									addTeam = $("<td>" + "<button class='addteam'></button>" + "</td>");
-									game.append(team1Name, team1Score, team2Score, team2Name, addTeam);
-									$('#gametable').append(game);
-									//console.log(teamName);
-
-								};
-
+							var gameData =[];
+							for (var i = dataG.objects.length - 1; i >= 0; i--) {
+								gameData.push(dataG.objects[i]);
+							}			
+								
+							var gameTemplate = '{{#gameData}}<ul class="gamelist">{{#team_1}}<li>{{name}}</li>{{/team_1}}<li>{{team_1_score}}</li><li>{{team_2_score}}</li>{{#team_2}}<li>{{name}}</li>{{/team_2}}</ul>{{/gameData}}';
+					
+							var html = Mustache.to_html(gameTemplate, {gameData: gameData});
+							$('#gametemplate').html(html);	
 						});
+					
 				},
 			    '/rankingpage': function() {
-			    	SCOREAPP.page.render('rankingpage');
+			    SCOREAPP.page.render('rankingpage');					
 			    	SCOREAPP.appRankingData = microAjax("https://api.leaguevine.com/v1/pools/19222/",
 						function(data){
 							var dataR = JSON.parse(data);
-							//console.log(dataR);
+							var rankingData=[];
+							
 							for (var i = dataR.standings.length - 1; i >= 0; i--) {
-								var rankingData = dataR.standings[i];
-									console.log(rankingData);
-								var standings = $("<tr></tr>"),
-									lost = $("<td>" + rankingData.losses + "</td>"),
-									win = $("<td>" + rankingData.wins + "</td>"),
-									pointsAllowed = $("<td>" + rankingData.points_allowed + "</td>"),
-									pointsScored = $("<td>" + rankingData.points_scored + "</td>"),
-									plusMinus = $("<td>" + rankingData.plus_minus + "</td>"),
-									teamName = $("<td>" + rankingData.team.name + "</td>");
-									standings.append(teamName, win, lost, pointsScored, pointsAllowed, plusMinus);
-									$('#rankingtable').append(standings);		
-							};
-					});
-			    }, 
+									rankingData.push(dataR.standings[i]);								
+							}
+
+							var rankingTemplate = 
+							'{{#rankingData}}<ul class="rankinglist">{{#team}}<li>{{name}}</li>{{/team}}<li>{{points_scored}}</li><li>{{points_allowed}}</li><li>{{losses}}</li><li>{{games_played}}</li></ul>{{/rankingData}}';
+
+							var html = Mustache.to_html(rankingTemplate, {rankingData: rankingData});
+							$('#rankingtemplate').html(html);								
+					});	
+				},	 
 			    '/schedulepage': function() {
-			    	SCOREAPP.page.render('schedulepage');
+			    SCOREAPP.page.render('schedulepage');
 			    	SCOREAPP.appScheduleData= microAjax("https://api.leaguevine.com/v1/pools/?tournament_id=19389&access_token=5397f697c0",
 						function(data){
 							var dataS = JSON.parse(data);
+							var scheduleData = [];
+								
 								for (var i = dataS.objects.length - 1; i >= 0; i--) {
-									var scheduleData = dataS.objects[i];
-									console.log(scheduleData);
-								};
+									scheduleData.push(dataS.objects[i]);									
+								}
+								console.log(scheduleData);
+							var scheduleTemplate = 
+							'{{#scheduleData}}<ul class="schedulelist"><li>{{name}}</li>{{#standings}}{{#team}}<li>{{name}}</li>{{/team}}{{/standings}}</ul>{{/scheduleData}}';
+
+							var html = Mustache.to_html(scheduleTemplate, {scheduleData : scheduleData});
+							$('#scheduletemplate').html(html);
 						});
 			    },
 			    '/moviepage': function(){
 			    	SCOREAPP.page.render('moviepage');
-			    },			   
-			    '*': function() {
+			    }			   
+			    /*'*': function() {
 			    	SCOREAPP.page.render('gamepage');
-			    }
+			    }*/
 			});
 		},
 		//if there is a page change select te corresponding route and data-bind to display on the page 
@@ -121,7 +119,7 @@ SCOREAPP.moviepage = {
             if (!route) {
             	sections[0].classList.add('active');
             }
-            console.log(route);
+         
 
 		}
 	};
@@ -131,7 +129,7 @@ SCOREAPP.moviepage = {
 			// http://javascriptweblog.wordpress.com/2010/04/19/how-evil-is-eval/
 			//var data = eval('SCOREAPP.'+route);
 			var data = SCOREAPP[route];
-
+			
 			//selecting the corresponding route
 			Transparency.render(qwery('[data-route='+route+']')[0], data);
 			

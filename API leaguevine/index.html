@@ -22,20 +22,20 @@
 	<article id="content" class="col">
 		<section data-route="gamepage" class="active">
 			 	<section data-bind="game"> 
-			    	<table id="gametable" class="table">
-			  		</table>
+			    	<ul id="gametemplate">		
+			  		</ul>
 			    </section>
 		</section>
 		<section data-route="rankingpage">
 			 	<section data-bind="ranking"> 
-			    	<table id="rankingtable" class="table">
-			  		</table>
+			    	<ul id="rankingtemplate">			    		
+			  		</ul>
 			    </section>
 		</section>
 		<section data-route="schedulepage">
 			 	<section data-bind="schedule"> 
-			    	<table id="scheduletable" class="table">
-			  		</table>
+			    	<ul id="scheduletemplate">
+			    	</ul>
 			    </section>
 		</section>
 		<section data-route="moviepage">
@@ -50,10 +50,23 @@
 	<script src="static/js/lib/routie.min.js"></script>
 	<script src="static/js/lib/ready.min.js" type="text/javascript"></script>
 	<script src="static/js/lib/qwery.min.js" type="text/javascript"></script>
+
+	<!-- mustache -->
+	<script src="static/js/lib/mustache.js" type="text/javascript"></script>
+	
+	<!-- transparancy -->
 	<script src="static/js/lib/transparancy.min.js" type="text/javascript"></script>
+	
+	<!-- microajax -->
 	<script src="static/js/lib/microajax.minified.js"></script>
+	
+	<!-- attach -->
 	<script src="static/js/lib/attach.min.js"></script>
+	
+	<!-- zepto -->
 	<script src="static/js/lib/zepto.min.js"></script>
+	
+	<!-- list -->
 	<script src="static/js/lib/list.min.js"></script>
 
 	<!-- Application -->

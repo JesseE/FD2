@@ -138,9 +138,16 @@ aside {
 article#content{
 	width:100%;
 }
-ul.titles li, .gamerow ul li{
-	margin: 10px 30px;
+#gametemplate,#rankingtemplate,#scheduletemplate{
+	width:100%;
 }
+.gamelist,.rankinglist,.schedulelist{
+	width:100%;
+}
+.gamelist li,.rankinglist li, .schedulelist li{
+	width: 13%;
+}
+
 /* Dead Simple Grid (c) 2012 Vladimir Agafonkin */
 
 .col {
