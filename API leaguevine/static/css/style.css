@@ -130,6 +130,20 @@ aside {
 	}
 
 /* Jesse */
+nav{
+	width: 100%;}
+nav ul {
+	margin:0 0 10 5px;
+}
+nav ul li{
+	width: 32.8%;
+
+}
+
+nav ul li a{
+	width: 100%;
+}
+
 .addteam{
 	width: 50px;
 	height: 50px;
@@ -141,23 +155,82 @@ article#content{
 #ajaxloader{
 	display:none;
 	width:250px;
-	height:auto;
-	margin:0 auto;
+	height:100px;
+	margin:5% auto;
 }
 #gametemplate,#rankingtemplate,#scheduletemplate{
 	width:100%;
+	margin:auto;
+}
+.gameFilter{
+	width:100%;
+	margin:auto;
+}
+
+.gameFilter li{
+	width:100%;
+	text-align: center;
+
 }
 .gamelist,.rankinglist,.schedulelist{
 	width:100%;
+	margin:auto;
+	float:left;
+	
 }
-.gamelist li,.rankinglist li, .schedulelist li{
-	width: 13%;
+.gamelist li,.rankinglist li{
+	float:left;
+	padding-top: 25px;
+	text-align: center;
+	width: 20%;
+	height:100px;
 }
+.schedulelist li{
+	float:left;
+	padding-top: 25px;
+	text-align: center;
+	width: 14%;
+	height:100px;
+
+}
+nav ul li{
+
+	float:left;
+}
+a{
+	color:#333 !important;
+}
+ul li a{
+	border-style:none;
+}
+ul li{
+
+	border-top: 0px;
+	border-bottom: 5px solid;
+}
+
 .gamelist:hover,.rankinglist:hover, .schedulelist:hover{
 	background:#E4E4E4;
 }
 #updatescore, #back{
+
+	width:38%;
+	margin:10px auto;
 	display:none;
+}
+#updatescore li{
+	border:none;
+	margin-right:30%;
+}
+.updateTeamScore{
+	width:100%;	
+}
+#back li{
+	width:100%;
+	border:none;
+}
+#updatescore li button, #back li button{
+	width:100%;
 }
 /* Dead Simple Grid (c) 2012 Vladimir Agafonkin */
 

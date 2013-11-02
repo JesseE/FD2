@@ -9,29 +9,34 @@
 </head>
 <body>
 	<header>
-		<h1>Web App Skeleton</h1>
 		<nav>
 			<ul>
-				<li><a href="#/gamepage" data>Gamepage</a></li>
-				<li><a href="#/rankingpage">Rankingpage</a></li>
-				<li><a href="#/schedulepage">Schedulepage</a></li>
+				<li><a href="#/gamepage" data><h3>Gamepage</h3></a></li>
+				<li><a href="#/rankingpage"><h3>Rankingpage</h3></a></li>
+				<li><a href="#/schedulepage"><h3>Schedulepage</h3></a></li>
 		    </ul>
 		</nav>
 	</header>
 	<article id="content" class="col">
 		<section data-route="gamepage" class="active">
 			 	<section data-bind="game">
-			 		<ul id ="back">
-			 			<li><button><span>back</span></button></li>
+			 		
+			 		<ul class="gameFilter">
+			    			<li><a>newest</a></li>
+			    			<li><a>team</a></li>
+			    			<li><a>highest</a></li>
+			    	</ul>
+			    	<ul id ="back">
+			 			<li><button class="btn btn-danger"><span>back</span></button></li>
 			 		</ul> 
 			    	<ul id="gametemplate">
+			    		
 			    		<div id="ajaxloader"><img src="static/images/ajax-loader.gif"></div>		
 			  		</ul>
 			  		<ul id="updatescore">
 			  			<li><input class="updateTeam1Score" type="text" placeholder="update team 1 score"></li>
-			  			<button class="updateTeam1Score"><span>update</span></button>
 			  			<li><input class="updateTeam2Score" type="text" placeholder="update team 2 score"></li>
-			  			<button class="updateTeam2Score"><span>update</span></button>
+			  			<button class="updateTeamScore btn btn-success"><span>update</span></button>
 			  		</ul>
 			    </section>
 		</section>

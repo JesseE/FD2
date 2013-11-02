@@ -53,68 +53,61 @@ SCOREAPP.schedulepage = {
 							console.log(gameData);
 							console.log(gameTeam1ID);
 							//view	
-							var gameTemplate = '{{#gameData}}<ul class="gamelist"><li class="gameID">{{id}}</li>{{#team_1}}<li>{{name}}</li>{{/team_1}}<li>{{team_1_score}}</li><li>{{team_2_score}}</li>{{#team_2}}<li>{{name}}</li>{{/team_2}}</ul>{{/gameData}}';
+							var gameTemplate = '{{#gameData}}<ul class="gamelist"><li class="gameID">{{id}}</li>{{#team_1}}<li><h5>{{name}}</h5></li>{{/team_1}}<li><h3>{{team_1_score}}</h3></li><li><h2>-</h2></li><li><h3>{{team_2_score}}</h3></li>{{#team_2}}<li><h5>{{name}}</h5></li>{{/team_2}}</ul>{{/gameData}}';
 
 							//apply to html
 							var html = Mustache.to_html(gameTemplate, {gameData: gameData,gameDataId : gameDataId});
 							$('#gametemplate').html(html);	
 							$('#ajaxloader').hide();
+							$('.gameID').hide();
 							console.log(gameDataId);	
 
 								$('.gamelist').click(function(e){
 									e.preventDefault();
 									//select the object
+									var gamesDataID = [];
 									var team1score = [];
+									console.log()
 									for (var i = gameData.length - 1; i >= 0; i--) {
 											team1score.push(gameData[i].team_1_score);	
-									}
-															
+											gamesDataID.push(gameData[i].id);						
+									}					
 									var gameid = this.firstChild.innerHTML;
-									
+								
 									//if gameid of selected object is equal to gamedataid show only the selected data
 									
 									var gameObjId = JSON.parse(gameid);
 									
-									//console.log(gameObjId);
-									
+									console.log(gameObjId);									
 
 									var gameidtype = $.type(gameObjId);
 									
 									if(this.gameObjId === gameDataId[i]){
-
-
-									 $(this).addClass('active');
-									 	if($('.gamelist').not('active')){
-									 		$('.gamelist').animate({
-									 			translateX:'-2000px'
-									 		},500, 'ease-out');
-
-									 									 								 
-										}
-										if($(this).hasClass('active')){
-										 	$(this).animate({
-										 		translateX:'0px'
-										 		
-										 	},500,'ease-in');
-										}
+										$(this).addClass('active');
+										var notactive = $('.gamelist').not('active');								 	
 										$('#updatescore').show();
 										$('#back').show();
+										$('.gamelist').hide();
+										$('.active').show();
 									}
+
 									$('#back').click(function(e){
 										e.preventDefault();
-										$('.gamelist').animate({
-											translateX:'0px'
-										},500,'ease-in');
+										if($('.gamelist').hasClass('active')){
+											$('.gamelist').removeClass('active');
+										}
 										$('#updatescore').hide();
 										$('#back').hide();
+										$('.gamelist').show();
 									});
+									
 
 									//select object out of array
 									var access_number = '82996312dc';
         							var access_token = '&access_token=' + access_number;	  							
         							
 									
-									$('button.updateTeam1Score').click(function(e){
+									$('button.updateTeamScore').click(function(e){
 										e.preventDefault();
 										
 										$.ajax({
@@ -123,7 +116,6 @@ SCOREAPP.schedulepage = {
 											url: "https://api.leaguevine.com/v1/game_scores/",											
 											headers:{
 												Authorization: 'bearer ' + access_number
-
 											},
 											contentType: "application/json",
 
@@ -136,7 +128,6 @@ SCOREAPP.schedulepage = {
 											}),
         									
 											success:function(){
-												 console.log('success');
 												 window.location.reload();
 											}
 																				
