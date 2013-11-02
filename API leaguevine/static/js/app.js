@@ -88,6 +88,7 @@ SCOREAPP.schedulepage = {
 										$('#updatescore').show();
 										$('#back').show();
 										$('.gamelist').hide();
+										$('.gameFilter').hide();
 										$('.active').show();
 									}
 
@@ -96,6 +97,7 @@ SCOREAPP.schedulepage = {
 										if($('.gamelist').hasClass('active')){
 											$('.gamelist').removeClass('active');
 										}
+										$('.gameFilter').show();
 										$('#updatescore').hide();
 										$('#back').hide();
 										$('.gamelist').show();

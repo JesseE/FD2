@@ -23,8 +23,6 @@ a {
 	-webkit-transition:all .5s ease;
 }
 a:hover {
-	color:#ffb400;
-	background-color: #f4f4f4;
 }
 ul {
 	list-style:none;
@@ -55,7 +53,7 @@ ul {
 		}
 
 		ul li a:hover {
-			background-color: #eee;
+			
 		}
 
 section img, video {
@@ -130,13 +128,27 @@ aside {
 	}
 
 /* Jesse */
+header ul li h3{
+	margin:auto;
+	width:100%;
+	color:white;
+	text-align: center;
+}
+html body{
+	background:#141414;
+}
 nav{
-	width: 100%;}
+	width: 100%;
+	margin-bottom: 3px !important;
+	margin:auto;
+	padding:0;
+}
 nav ul {
-	margin:0 0 10 5px;
+	width: 100%;
+	margin:auto;
 }
 nav ul li{
-	width: 32.8%;
+	width: 33%;
 
 }
 
@@ -153,10 +165,12 @@ article#content{
 	width:100%;
 }
 #ajaxloader{
+	background:white;
 	display:none;
-	width:250px;
-	height:100px;
-	margin:5% auto;
+	padding:25px 75px;
+	width:200px;
+	height:115px;
+	margin:auto;
 }
 #gametemplate,#rankingtemplate,#scheduletemplate{
 	width:100%;
@@ -165,7 +179,9 @@ article#content{
 .gameFilter{
 	width:100%;
 	margin:auto;
+	margin-bottom: 3px !important;
 }
+
 
 .gameFilter li{
 	width:100%;
@@ -173,6 +189,8 @@ article#content{
 
 }
 .gamelist,.rankinglist,.schedulelist{
+	background: white;
+	margin-bottom: 3px !important;
 	width:100%;
 	margin:auto;
 	float:left;
@@ -193,9 +211,15 @@ article#content{
 	height:100px;
 
 }
+nav ul li a h3{
+	background: #d94935;
+}
 nav ul li{
-
+	
 	float:left;
+}
+nav ul li a{
+	color: white;
 }
 a{
 	color:#333 !important;
@@ -203,10 +227,11 @@ a{
 ul li a{
 	border-style:none;
 }
+
 ul li{
 
 	border-top: 0px;
-	border-bottom: 5px solid;
+	
 }
 
 .gamelist:hover,.rankinglist:hover, .schedulelist:hover{
@@ -334,23 +359,20 @@ and (min-width : 1024px) {
 		nav ul li {
 			display:inline-block;
 			margin-right:.3em;
+			margin-bottom: 3px;
 
 		}
 			nav ul li a {
+				background: #d94935;
 				font-weight: normal;
 				display: inline-block;
-				background:#eee;
 				padding:5px 10px;
-				color:#333;
+				color:white !important;
 				text-decoration: none;
-				border-radius: 5px;
 				-webkit-transition:all .2s ease;
 				border:none;
 			}
 			nav ul li a:hover {
-				background:#e0e0e0;
-				box-shadow:0 0 5px #aaa;
-				color:#333;
 			}
 
 	.col {
