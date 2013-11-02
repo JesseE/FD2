@@ -138,6 +138,12 @@ aside {
 article#content{
 	width:100%;
 }
+#ajaxloader{
+	display:none;
+	width:250px;
+	height:auto;
+	margin:0 auto;
+}
 #gametemplate,#rankingtemplate,#scheduletemplate{
 	width:100%;
 }
@@ -147,7 +153,12 @@ article#content{
 .gamelist li,.rankinglist li, .schedulelist li{
 	width: 13%;
 }
-
+.gamelist:hover,.rankinglist:hover, .schedulelist:hover{
+	background:#E4E4E4;
+}
+#updatescore, #back{
+	display:none;
+}
 /* Dead Simple Grid (c) 2012 Vladimir Agafonkin */
 
 .col {

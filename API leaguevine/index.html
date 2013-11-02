@@ -15,33 +15,38 @@
 				<li><a href="#/gamepage" data>Gamepage</a></li>
 				<li><a href="#/rankingpage">Rankingpage</a></li>
 				<li><a href="#/schedulepage">Schedulepage</a></li>
-				<li><a href="#/moviepage">Moviepage</a></li>
 		    </ul>
 		</nav>
 	</header>
 	<article id="content" class="col">
 		<section data-route="gamepage" class="active">
-			 	<section data-bind="game"> 
-			    	<ul id="gametemplate">		
+			 	<section data-bind="game">
+			 		<ul id ="back">
+			 			<li><button><span>back</span></button></li>
+			 		</ul> 
+			    	<ul id="gametemplate">
+			    		<div id="ajaxloader"><img src="static/images/ajax-loader.gif"></div>		
+			  		</ul>
+			  		<ul id="updatescore">
+			  			<li><input class="updateTeam1Score" type="text" placeholder="update team 1 score"></li>
+			  			<button class="updateTeam1Score"><span>update</span></button>
+			  			<li><input class="updateTeam2Score" type="text" placeholder="update team 2 score"></li>
+			  			<button class="updateTeam2Score"><span>update</span></button>
 			  		</ul>
 			    </section>
 		</section>
 		<section data-route="rankingpage">
 			 	<section data-bind="ranking"> 
-			    	<ul id="rankingtemplate">			    		
+			    	<ul id="rankingtemplate">
+			    		<div id="ajaxloader"><img src="static/images/ajax-loader.gif"></div>    		
 			  		</ul>
 			    </section>
 		</section>
 		<section data-route="schedulepage">
 			 	<section data-bind="schedule"> 
 			    	<ul id="scheduletemplate">
+			    		<div id="ajaxloader"><img src="static/images/ajax-loader.gif"></div>
 			    	</ul>
-			    </section>
-		</section>
-		<section data-route="moviepage">
-			 	<section data-bind="movie"> 
-			    	<table id="movietable" class="table">    
-			  		</table>
 			    </section>
 		</section>
 	</article>
